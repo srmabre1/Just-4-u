@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Intro — Just 4 U</title>
+<style>
+  :root{
+    --accent:#ff4da6;
+    --bg1:#0b1020;
+    --bg2:#1b0424;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0;
+    min-height:100vh;
+    font-family:Inter, Arial, sans-serif;
+    background: linear-gradient(135deg,var(--bg1),var(--bg2));
+    color:#fff;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:24px;
+  }
+  .card{
+    width:100%;
+    max-width:760px;
+    background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));
+    border-radius:16px;
+    padding:28px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+    transform: translateY(0);
+    animation: float 6s ease-in-out infinite;
+  }
+  @keyframes float{50%{transform:translateY(-8px)}}
+  h1{margin:0 0 12px 0;color:var(--accent);font-size:28px;text-align:center}
+  p{color:#ddd;line-height:1.6;font-size:17px}
+  .btn{
+    display:inline-block;
+    margin:18px auto 0;
+    background:var(--accent);
+    color:#fff;
+    padding:12px 22px;
+    border-radius:12px;
+    border:none;
+    font-size:16px;
+    cursor:pointer;
+    box-shadow: 0 8px 24px rgba(255,77,166,0.12);
+    transition:transform .15s ease;
+  }
+  .btn:active{transform:scale(.98)}
+  .small{color:#bbb;font-size:13px;margin-top:10px;text-align:center}
+  .note{color:#ffebef;background:rgba(255,77,166,0.06);padding:10px;border-radius:8px;margin-top:12px}
+</style>
+</head>
+<body>
+  <div class="card">
+    <h1>Hey hey Saju ❤️</h1>
+    <p>
+      Hey hey saju i know ki yeh utna b aacha nhi hai but pura dekhna — videos puray dekhna.
+      Aur haan, agar pehlay video open karne ko kuch reply dena pada toh <strong>14</strong> hai.
+    </p>
+
+    <div style="text-align:center">
+      <button class="btn" onclick="location.href='videos.html'">Continue → Videos</button>
+      <div class="small">Tip: Videos play first. Story appears after you finish all videos.</div>
+      <div class="note">If any video doesn't load, tell me and I’ll fix it.</div>
+    </div>
+  </div>
+</body>
+</html>
