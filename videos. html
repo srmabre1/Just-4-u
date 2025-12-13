@@ -1,134 +1,107 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Videos — Just 4 U</title>
+<meta charset="UTF-8">
+<title>Just For You</title>
+
 <style>
-  :root{--accent:#ff4da6;--muted:#999}
-  *{box-sizing:border-box}
-  body{margin:0;background:#07070a;color:#fff;font-family:Inter,Arial,sans-serif;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:20px}
-  .wrap{max-width:920px;width:100%;background:linear-gradient(180deg,#0b0b0f,#0f0f13);border-radius:14px;padding:20px;box-shadow:0 12px 40px rgba(0,0,0,.7)}
-  h1{color:var(--accent);text-align:center;margin:6px 0 8px}
-  p{color:#ccc;text-align:center;margin-top:0}
-  #playerBox{margin-top:18px;display:flex;flex-direction:column;align-items:center}
-  video{width:100%;max-width:720px;border-radius:12px;background:#000;box-shadow:0 8px 30px rgba(0,0,0,.6)}
-  .controls{display:flex;gap:14px;align-items:center;flex-wrap:wrap;justify-content:center;margin-top:12px}
-  button{background:var(--accent);border:none;color:#fff;padding:12px 18px;border-radius:10px;font-size:16px;cursor:pointer;box-shadow:0 8px 24px rgba(255,77,166,0.12)}
-  button.secondary{background:transparent;border:1px solid rgba(255,255,255,0.06);color:#ddd}
-  #storyBtn[disabled]{opacity:.55;cursor:not-allowed}
-  #status{color:var(--muted);margin-top:10px;text-align:center}
-  .progress{height:8px;background:rgba(255,255,255,0.06);border-radius:6px;overflow:hidden;margin-top:12px}
-  .bar{height:100%;background:linear-gradient(90deg, #ff4da6, #ffb199);width:0%}
-  /* loader overlay */
-  #loader{position:fixed;left:0;top:0;right:0;bottom:0;background:linear-gradient(180deg, rgba(0,0,0,.85), rgba(0,0,0,.95));display:flex;align-items:center;justify-content:center;z-index:50;opacity:0;pointer-events:none;transition:opacity .25s}
-  #loader.show{opacity:1;pointer-events:auto}
-  .spinner{width:72px;height:72px;border-radius:50%;border:6px solid rgba(255,255,255,0.08);border-top-color:var(--accent);animation:spin 1s linear infinite}
-  @keyframes spin{to{transform:rotate(360deg)}}
-  @media(max-width:720px){video{max-width:100%}}
+body {
+  background: black;
+  color: white;
+  font-family: Arial, sans-serif;
+  text-align: center;
+}
+
+.video-box {
+  display: none;
+  margin-top: 20px;
+}
+
+input {
+  padding: 10px;
+  border-radius: 6px;
+  border: none;
+  outline: none;
+}
+
+button {
+  padding: 10px 15px;
+  margin-left: 5px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+}
+
+h2 {
+  margin-top: 40px;
+}
 </style>
+
+<script>
+function unlock(id, pass) {
+  let input = document.getElementById("pass" + id).value;
+  if (input === pass) {
+    document.getElementById("box" + id).style.display = "block";
+    document.getElementById("lock" + id).style.display = "none";
+  } else {
+    alert("Hint dhyaan se dekho 😉");
+  }
+}
+</script>
+
 </head>
 <body>
 
-<div id="loader" class="show"><div class="spinner"></div></div>
+<h1>Just 4 You ❤️</h1>
 
-<div class="wrap">
-  <h1>Just For You ❤️</h1>
-  <p>Tap <strong>NEXT</strong> to play each video. After watching all videos, you'll be able to read the full story.</p>
+<!-- VIDEO 1 (NO PASSWORD) -->
+<h2>Video 1</h2>
+<video controls width="90%">
+  <source src="14.mp4" type="video/mp4">
+</video>
 
-  <div id="playerBox">
-    <video id="video" controls preload="metadata"></video>
-
-    <div class="controls">
-      <button id="nextBtn">NEXT ▶</button>
-      <button id="replayBtn" class="secondary">Replay</button>
-      <button id="storyBtn" disabled>Read Story (Locked)</button>
-    </div>
-
-    <div class="progress" aria-hidden>
-      <div class="bar" id="bar"></div>
-    </div>
-
-    <div id="status">Videos watched: <span id="watched">0</span>/<span id="total">0</span></div>
-  </div>
+<!-- VIDEO 2 -->
+<div id="lock2">
+  <h2>Unlock Next</h2>
+  <input id="pass2" placeholder="Enter code">
+  <button onclick="unlock(2,'14')">Unlock</button>
 </div>
 
-<script>
-  // filenames (exact)
-  const videos = ["14.mp4","fe.mp4","and.mp4","smile.mp4","forever.mp4"];
-  const videoEl = document.getElementById('video');
-  const nextBtn = document.getElementById('nextBtn');
-  const replayBtn = document.getElementById('replayBtn');
-  const storyBtn = document.getElementById('storyBtn');
-  const watchedEl = document.getElementById('watched');
-  const totalEl = document.getElementById('total');
-  const barEl = document.getElementById('bar');
-  const loader = document.getElementById('loader');
+<div class="video-box" id="box2">
+  <video controls width="90%">
+    <source src="fe.mp4" type="video/mp4">
+  </video>
+</div>
 
-  let idx = 0;
-  let seen = new Array(videos.length).fill(false);
-  let watched = 0;
+<!-- VIDEO 3 -->
+<div id="lock3">
+  <h2>Next Hint Awaits</h2>
+  <input id="pass3" placeholder="Enter code">
+  <button onclick="unlock(3,'February')">Unlock</button>
+</div>
 
-  totalEl.textContent = videos.length;
-  watchedEl.textContent = watched;
+<div class="video-box" id="box3">
+  <video controls width="90%">
+    <source src="smile.mp4" type="video/mp4">
+  </video>
+</div>
 
-  // show loader until first video metadata ready
-  function hideLoader(){ loader.classList.remove('show') }
-  function showLoader(){ loader.classList.add('show') }
+<!-- VIDEO 4 -->
+<div id="lock4">
+  <h2>Almost There</h2>
+  <input id="pass4" placeholder="Enter code">
+  <button onclick="unlock(4,'Smile')">Unlock</button>
+</div>
 
-  // start: load nothing, show loader briefly then ready
-  showLoader();
-  setTimeout(hideLoader,700);
+<div class="video-box" id="box4">
+  <video controls width="90%">
+    <source src="4ever.mp4" type="video/mp4">
+  </video>
+</div>
 
-  function loadVideo(i){
-    showLoader();
-    videoEl.pause();
-    videoEl.removeAttribute('src');
-    videoEl.src = videos[i];
-    videoEl.load();
-    videoEl.onloadeddata = ()=>{ hideLoader(); updateProgress(); videoEl.play().catch(()=>{}); };
-  }
-
-  function updateProgress(){
-    const pct = Math.round((watched / videos.length) * 100);
-    barEl.style.width = pct + '%';
-  }
-
-  nextBtn.addEventListener('click', ()=>{
-    // If a video is currently playing and not ended, skip to end to mark watched? We'll rely on 'ended' to be fair.
-    loadVideo(idx);
-  });
-
-  replayBtn.addEventListener('click', ()=> {
-    if (!videoEl.src) loadVideo(idx);
-    else videoEl.currentTime = 0; videoEl.play();
-  });
-
-  videoEl.addEventListener('ended', ()=>{
-    if (!seen[idx]) { seen[idx] = true; watched++; watchedEl.textContent = watched; updateProgress(); }
-    if (idx < videos.length - 1){ idx++; /* wait for user click NEXT to play next */ }
-    // enable story only when watched all
-    if (watched === videos.length) {
-      storyBtn.disabled = false;
-      storyBtn.style.background = '#2ecc71';
-      storyBtn.style.color = '#000';
-      storyBtn.textContent = 'Read Story →';
-    }
-  });
-
-  // if user navigates away & returns, still works
-  storyBtn.addEventListener('click', ()=> {
-    if (!storyBtn.disabled) location.href = 'story.html';
-  });
-
-  // initial state: show instructions, no video loaded
-  // small UX: if user clicks NEXT repeatedly, the current video will be loaded each time
-  // remove loader if long load
-  videoEl.addEventListener('error', ()=>{ hideLoader(); alert('Video not found — please upload files with exact names.'); });
-
-  // progress update occasionally
-  setInterval(()=>{ updateProgress(); }, 800);
-</script>
+<!-- STORY -->
+<h2>The Story ❤️</h2>
+<a href="story.html" style="color:lightblue;font-size:18px;">Read Our Story</a>
 
 </body>
 </html>
