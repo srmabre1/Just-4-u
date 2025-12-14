@@ -2,53 +2,45 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Just For You</title>
+<title>Just 4 You ❤️</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
 <style>
-body {
-  background: black;
-  color: white;
-  font-family: Arial, sans-serif;
-  text-align: center;
+body{
+  background:black;
+  color:white;
+  font-family:Arial,sans-serif;
+  text-align:center;
+  padding:20px;
 }
-
-.video-box {
-  display: none;
-  margin-top: 20px;
+video{
+  width:100%;
+  max-width:600px;
+  border-radius:15px;
+  box-shadow:0 0 20px #ff4da6;
+  margin-bottom:20px;
 }
-
-input {
-  padding: 10px;
-  border-radius: 6px;
-  border: none;
-  outline: none;
+input{
+  padding:10px;
+  width:200px;
+  border-radius:8px;
+  border:none;
 }
-
-button {
-  padding: 10px 15px;
-  margin-left: 5px;
-  border-radius: 6px;
-  border: none;
-  cursor: pointer;
+button{
+  padding:10px 18px;
+  border:none;
+  border-radius:8px;
+  background:#ff4da6;
+  color:white;
+  cursor:pointer;
 }
-
-h2 {
-  margin-top: 40px;
+.section{
+  margin-top:40px;
+}
+.hidden{
+  display:none;
 }
 </style>
-
-<script>
-function unlock(id, pass) {
-  let input = document.getElementById("pass" + id).value;
-  if (input === pass) {
-    document.getElementById("box" + id).style.display = "block";
-    document.getElementById("lock" + id).style.display = "none";
-  } else {
-    alert("Hint dhyaan se dekho 😉");
-  }
-}
-</script>
-
 </head>
 <body>
 
@@ -56,52 +48,80 @@ function unlock(id, pass) {
 
 <!-- VIDEO 1 (NO PASSWORD) -->
 <h2>Video 1</h2>
-<video controls width="90%">
-  <source src="14.mp4" type="video/mp4">
+<video controls>
+  <source src="Video.mp4" type="video/mp4">
 </video>
 
 <!-- VIDEO 2 -->
-<div id="lock2">
-  <h2>Unlock Next</h2>
-  <input id="pass2" placeholder="Enter code">
-  <button onclick="unlock(2,'14')">Unlock</button>
-</div>
-
-<div class="video-box" id="box2">
-  <video controls width="90%">
-    <source src="fe.mp4" type="video/mp4">
+<div class="section">
+<h3>Unlock Next</h3>
+<input id="code1" placeholder="Enter code">
+<button onclick="unlock1()">Unlock</button>
+<div id="v2" class="hidden">
+  <video controls>
+    <source src="14.mp4" type="video/mp4">
   </video>
+</div>
 </div>
 
 <!-- VIDEO 3 -->
-<div id="lock3">
-  <h2>Next Hint Awaits</h2>
-  <input id="pass3" placeholder="Enter code">
-  <button onclick="unlock(3,'February')">Unlock</button>
-</div>
-
-<div class="video-box" id="box3">
-  <video controls width="90%">
-    <source src="smile.mp4" type="video/mp4">
+<div class="section">
+<h3>Next Hint Awaits</h3>
+<input id="code2" placeholder="Enter code">
+<button onclick="unlock2()">Unlock</button>
+<div id="v3" class="hidden">
+  <video controls>
+    <source src="February.mp4" type="video/mp4">
   </video>
+</div>
 </div>
 
 <!-- VIDEO 4 -->
-<div id="lock4">
-  <h2>Almost There</h2>
-  <input id="pass4" placeholder="Enter code">
-  <button onclick="unlock(4,'Smile')">Unlock</button>
+<div class="section">
+<h3>Almost There</h3>
+<input id="code3" placeholder="Enter code">
+<button onclick="unlock3()">Unlock</button>
+<div id="v4" class="hidden">
+  <video controls>
+    <source src="Smile.mp4" type="video/mp4">
+  </video>
+</div>
 </div>
 
-<div class="video-box" id="box4">
-  <video controls width="90%">
+<!-- VIDEO 5 (LAST) -->
+<div class="section">
+<h3>Final One ❤️</h3>
+<input id="code4" placeholder="Enter code">
+<button onclick="unlock4()">Unlock</button>
+<div id="v5" class="hidden">
+  <video controls>
     <source src="4ever.mp4" type="video/mp4">
   </video>
 </div>
+</div>
 
-<!-- STORY -->
-<h2>The Story ❤️</h2>
-<a href="story.html" style="color:lightblue;font-size:18px;">Read Our Story</a>
+<script>
+function unlock1(){
+  if(code1.value.trim()=="14"){
+    v2.classList.remove("hidden");
+  } else alert("Wrong code");
+}
+function unlock2(){
+  if(code2.value.trim().toLowerCase()=="february"){
+    v3.classList.remove("hidden");
+  } else alert("Wrong code");
+}
+function unlock3(){
+  if(code3.value.trim().toLowerCase()=="smile"){
+    v4.classList.remove("hidden");
+  } else alert("Wrong code");
+}
+function unlock4(){
+  if(code4.value.trim().toLowerCase()=="4ever"){
+    v5.classList.remove("hidden");
+  } else alert("Wrong code");
+}
+</script>
 
 </body>
 </html>
