@@ -1,119 +1,54 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Just For You ❤️</title>
+<meta charset="UTF-8">
+<title>For You</title>
+
 <style>
 body{
-background:black;
-color:white;
-font-family:Arial;
-text-align:center;
+  background:black;
+  color:white;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  height:100vh;
+  text-align:center;
+  font-family:sans-serif;
 }
-.section{
-margin:40px auto;
-width:90%;
-max-width:500px;
-padding:20px;
-border-radius:15px;
-box-shadow:0 0 20px #ff4d6d;
-}
-input{
-width:65%;
-padding:12px;
-border-radius:20px;
-border:none;
+.box{
+  max-width:90%;
 }
 button{
-padding:12px 20px;
-border-radius:20px;
-border:none;
-background:#ff4d6d;
-color:white;
-font-size:16px;
-}
-.hidden{display:none}
-video{
-width:100%;
-margin-top:15px;
-border-radius:15px;
+  margin-top:25px;
+  padding:14px 26px;
+  font-size:18px;
+  border:none;
+  border-radius:14px;
+  background:#ff3c78;
+  color:white;
 }
 </style>
 </head>
+
 <body>
+<div class="box">
+  <h2>Hey hey saju 💙</h2>
 
+  <p>
+  I know ki yeh utna b acha nahi hai,  
+  but please pura dekho.  
+  Videos bhi, end tak 💫  
+  </p>
 
-<h1>Just 4 U ❤️</h1>
+  <p>
+  Aur haan… agar kisi video ko open  
+  karne ke liye reply chahiye  
+  toh pehla code hai: <b>14</b>
+  </p>
 
-
-<!-- VIDEO 1 -->
-<div class="section">
-<h3>Start Here</h3>
-<video controls>
-<source src="Video.mp4" type="video/mp4">
-</video>
+  <button onclick="location.href='videos.html'">
+    Next →
+  </button>
 </div>
-
-
-<!-- VIDEO 2 -->
-<div class="section">
-<h3>Unlock Next</h3>
-<input id="c1" placeholder="Enter code">
-<button onclick="u1()">Unlock</button>
-<div id="v2" class="hidden">
-<video controls>
-<source src="14.mp4" type="video/mp4">
-</video>
-</div>
-</div>
-
-
-<!-- VIDEO 3 -->
-<div class="section">
-<h3>Next Hint Awaits</h3>
-<input id="c2" placeholder="Enter code">
-<button onclick="u2()">Unlock</button>
-<div id="v3" class="hidden">
-<video controls>
-<source src="February.mp4" type="video/mp4">
-</video>
-</div>
-</div>
-
-
-<!-- VIDEO 4 -->
-<div class="section">
-<h3>Almost There</h3>
-<input id="c3" placeholder="Enter code">
-<button onclick="u3()">Unlock</button>
-<div id="v4" class="hidden">
-<video controls>
-<source src="Smile.mp4" type="video/mp4">
-</video>
-</div>
-</div>
-
-
-<!-- VIDEO 5 -->
-<div class="section">
-<h3>Final One ❤️</h3>
-<input id="c4" placeholder="Enter code">
-<button onclick="u4()">Unlock</button>
-<div id="v5" class="hidden">
-<video controls>
-<source src="4ever.mp4" type="video/mp4">
-</video>
-<br><br>
-<a href="story.html"><button>Read Our Story ❤️</button></a>
-</div>
-</div>
-
-
-<script>
-function u1(){if(c1.value.trim()=="14")v2.classList.remove('hidden');else alert('Wrong')}
-function u2(){if(c2.value.trim().toLowerCase()=="february")v3.classList.remove('hidden');else alert('Wrong')}
-function u3(){if(c3.value.trim().toLowerCase()=="smile")v4.classList.remove('hidden');else alert('Wrong')}
-function u4(){if(c4.value.trim().toLowerCase()=="4ever")v5.classList.remove('hidden');else alert('Wrong')}
-</script>
 </body>
 </html>
