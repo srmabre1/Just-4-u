@@ -90,15 +90,20 @@ button{
 
 <!-- VIDEO 5 (LAST) -->
 <div class="section">
-<h3>Final One ❤️</h3>
-<input id="code4" placeholder="Enter code">
-<button onclick="unlock4()">Unlock</button>
-<div id="v5" class="hidden">
-  <video controls>
-    <source src="4ever.mp4" type="video/mp4">
-  </video>
+  <h3>Final One ❤️</h3>
+  <input id="code4" placeholder="Enter code">
+  <button onclick="unlockFinal()">Unlock</button>
+
+  <div id="v5" class="hidden">
+    <video controls>
+      <source src="4ever.mp4" type="video/mp4">
+    </video>
+
+    <br><br>
+    <button onclick="showStory()">Read Our Story ❤️</button>
+  </div>
 </div>
-</div>
+
 
 <script>
 function unlock1(){
@@ -122,6 +127,26 @@ function unlock4(){
   } else alert("Wrong code");
 }
 </script>
+<div id="storyBtn" style="display:none; text-align:center; margin:40px 0;">
+  <a href="story.html" style="
+    padding:14px 28px;
+    background:#ff4d6d;
+    color:white;
+    text-decoration:none;
+    border-radius:12px;
+    font-size:18px;
+    box-shadow:0 0 20px rgba(255,77,109,0.6);
+  ">
+    ❤️ Read Our Story
+  </a>
+</div>
+<script>
+  // show story button after final video unlock
+  function showStory() {
+    document.getElementById("storyBtn").style.display = "block";
+  }
+</script>
+
 
 </body>
 </html>
