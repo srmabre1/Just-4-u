@@ -19,8 +19,16 @@
     animation: fadeIn 2s ease;
   }
   .highlight {
-    color: #ffd700;
+    background: linear-gradient(120deg, #ff6ec4, #7873f5);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
     font-weight: bold;
+    animation: glow 2s ease-in-out infinite alternate;
+  }
+
+  @keyframes glow {
+    from { text-shadow: 0 0 5px rgba(255,110,196,0.5); }
+    to { text-shadow: 0 0 15px rgba(120,115,245,0.9); }
   }
   .cursor {
     display: inline-block;
@@ -66,12 +74,12 @@ Minecraft, memes, waiting together, laughing first then helping — that’s our
 
 So yeah… this is my small birthday gift for you.
 
-<span class="highlight">Happy Birthday idiot ❤️</span>
+<span class=\"highlight\">Happy Birthday idiot ❤️</span>
 
 Thank you for being a part of my life.`;
 
 let i = 0;
-const speed = 25;
+const speed = 20;
 const storyDiv = document.getElementById('story');
 
 function type() {
@@ -87,4 +95,3 @@ type();
 
 </body>
 </html>
-
