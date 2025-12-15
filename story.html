@@ -1,96 +1,117 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>For You ❤️</title>
-<style>
-  body {
-    background: radial-gradient(circle at top, #0f2027, #203a43, #2c5364);
-    color: #fff;
-    font-family: 'Courier New', monospace;
-    padding: 20px;
-    line-height: 1.7;
-    overflow-x: hidden;
-  }
-  .container {
-    max-width: 900px;
-    margin: auto;
-    animation: fadeIn 2s ease;
-  }
-  .highlight {
-    background: linear-gradient(120deg, #ff6ec4, #7873f5);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    font-weight: bold;
-    animation: glow 2s ease-in-out infinite alternate;
-  }
 
-  @keyframes glow {
-    from { text-shadow: 0 0 5px rgba(255,110,196,0.5); }
-    to { text-shadow: 0 0 15px rgba(120,115,245,0.9); }
-  }
-  .cursor {
-    display: inline-block;
-    width: 10px;
-    background: #fff;
-    animation: blink 1s infinite;
-  }
-  @keyframes blink {
-    50% { opacity: 0; }
-  }
-  @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
+<style>
+body{
+  margin:0;
+  min-height:100vh;
+  background:linear-gradient(135deg,#0f0c29,#302b63,#24243e);
+  font-family:'Segoe UI',sans-serif;
+  color:white;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+.story-box{
+  max-width:800px;
+  padding:28px;
+  background:rgba(0,0,0,0.45);
+  border-radius:18px;
+  box-shadow:0 0 30px rgba(255,77,109,0.45);
+  font-size:18px;
+  line-height:1.7;
+}
+
+.cursor{
+  display:inline-block;
+  width:2px;
+  background:#ff4d6d;
+  animation:blink 1s infinite;
+  margin-left:3px;
+}
+
+@keyframes blink{
+  0%,50%{opacity:1}
+  51%,100%{opacity:0}
+}
+
+.highlight{
+  color:#ff4d6d;
+  font-weight:600;
+}
+
+.music-tip{
+  font-size:13px;
+  opacity:0.7;
+  text-align:center;
+  margin-bottom:12px;
+}
 </style>
+
 </head>
+
 <body>
 
-<audio autoplay loop>
-  <source src="music.mp3" type="audio/mpeg">
-</audio>
-
-<div class="container">
+<div class="story-box">
+  <div class="music-tip">🎧 Tap anywhere to start music</div>
   <div id="story"></div><span class="cursor"></span>
 </div>
 
+<audio id="bgMusic" loop>
+  <source src="music.mp3" type="audio/mpeg">
+</audio>
+
 <script>
-const text = `Hey my dear best frn i know my english is not good so hear im gonna use both English and urdu words
+const storyHTML = `
+Hey my dear <span class='highlight'>best frn</span> ❤️<br><br>
 
-I don't know ki tum ko yaadh hogah ya nhi but meko yaadh hai ki jb hum melay wou pehla din jb hum nay batt ki thi, but that was awesome cuz if we didn’t meet that day maybe right now I could b unable to write this 4 u.
+I know my English is not that good, so here I’m gonna use both English and Urdu words.<br><br>
 
-Tum ko yaadh hai ki how much tym we have spent with each other, how much fun did we without frn circle.
+I don’t know tumko yaad hoga ya nahi, but mujhe yaad hai — jab hum pehli baar mile the. Woh pehla din jab humne baat ki thi. That was awesome. Kyunki agar uss din hum nahi milte, maybe aaj main yeh tumhare liye likh bhi nahi paata.<br><br>
 
-Pata hai tum ko ki tay ray pass khana bilkul nhi hota tah aur kaisay tu hummaray lunch box may say khata tah 😜.
+Tumko yaad hai how much time we spent with each other? Kitna maza aata tha without friend circle ke. Aur pata hai, tumhare paas khana bilkul nahi hota tha aur kaise tum humare lunch box se khate the… nope, I’m wrong 😜 tum khate nahi the, tum toh toot padte the. Just kidding 😂<br><br>
 
-And u know when in our frn group everyone was absent but only u n me was coming in that days — only one lunch box, still full fun.
+Aur yaad hai jab group ke almost sab absent hote the, bas tum aur main hi aate the. Special thing yeh thi ke hum dono ke paas sirf <span class='highlight'>ek hi lunch box</span> hota tha. Asrar aur Basit lunch laate the, but hum unka lunch nahi khate the. Hum seedha sir ko de dete the. Main mana karta tha aur tum bhi kabhi force nahi jaate the. I know yeh thoda mad sound karta hai, but that was us.<br><br>
 
-U know that long path day? I really wanted us to walk till Khurhama together… but tu wapis chala gaya. That hurt me.
+Aur woh din yaad hai jab humne decide kiya tha ke ghar lamba rasta leke jaayenge. Maine apni bus chhod di thi. Huzaif aur Uzair nahi aaye, but hum phir bhi chal diye. Pata hai uss din main kya soch raha tha? Ke hum dono <span class='highlight'>Khurhama tak paidal</span> jaayenge — mere ghar tak. Hum 95% rasta complete kar chuke the, but uss din tum wapas chale gaye. Main chahta tha ke tumhe apne ghar le jaun. Sach bolu toh woh din mujhe kaafi zyada hurt hua… aur phir poora safar maine akela tay kiya.<br><br>
 
-Picnic day, lost phones, that ring shop moment 😂 — all memories stuck forever.
+Aur haan, picnic wala din kaise bhool sakte hain. Tumhari koi bhi pic achhi nahi aa rahi thi 😂 aur phir hum sab lost ho gaye. Tumhara phone mere paas tha, isliye hum contact bhi nahi kar pa rahe the. Aur phir woh scene yaad aaya jab tum apni mom ke liye ring lene gaye the. Woh banda tumhara haath pakad leta hai aur bolta hai — dekho mera haath aur tumhara haath kitna mulayam hai 😂😂. Just for fun, but unforgettable moment.<br><br>
 
-Minecraft, memes, waiting together, laughing first then helping — that’s our friendship.
+Aur yaad hai jab hum Krusan mein mile the. Huzaif aur Uzair haircut ke liye gaye the, aur hum wait karte rahe. Phir hum tumhare ghar gaye. Minecraft khela, memes dekhe — bro that was too much fun.<br><br>
 
-So yeah… this is my small birthday gift for you.
+Class ka woh din bhi yaad hai jab tum bench par calisthenics kar rahe the aur gir gaye 😅. Pata hai maine kya kiya? Friendship ka first principle — pehle hansi, phir madad. Woh din kaise bhool sakta hoon.<br><br>
 
-<span class=\"highlight\">Happy Birthday idiot ❤️</span>
+Main nahi chahta tha ke yeh bohot lamba ho, but phir bhi likhta gaya. I hope yeh <span class='highlight'>chhota sa birthday gift</span> tumhe pasand aaya hoga. I know yeh perfect nahi hai, but please accept it — just for me.<br><br>
 
-Thank you for being a part of my life.`;
+So yeah… this is my small birthday gift for you 🎁<br>
+<span class='highlight'>Happy Birthday idiot</span> 🎂😜<br>
+Thank you for being a part of my life ❤️
+`;
 
 let i = 0;
-const speed = 20;
-const storyDiv = document.getElementById('story');
+const speed = 28;
+const storyEl = document.getElementById('story');
 
-function type() {
-  if (i < text.length) {
-    storyDiv.innerHTML += text.charAt(i);
+function typeStory(){
+  if(i < storyHTML.length){
+    storyEl.innerHTML = storyHTML.slice(0, i + 1);
     i++;
-    setTimeout(type, speed);
+    setTimeout(typeStory, speed);
   }
 }
 
-type();
+// music play after first tap (mobile safe)
+document.body.addEventListener('click', () => {
+  document.getElementById('bgMusic').play();
+}, { once:true });
+
+window.onload = typeStory;
 </script>
 
 </body>
