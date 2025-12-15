@@ -89,7 +89,7 @@ button{
 <div id="l4" class="hidden">
   <input id="c4" placeholder="Enter code">
   <br>
-  <button onclick="unlockFinal(); showStory();">Unlock</button>
+  <button onclick="u4(); showStory();">Unlock</button>
 
 </div>
 
@@ -104,24 +104,28 @@ function u1(){
   if(c1.value.trim()=="14"){
     v2.classList.remove("hidden");
     l2.classList.remove("hidden");
-  } else alert("Wrong code");
+  } else alert("Wrong code ❌ (check spelling)");
+
 }
 function u2(){
-  if(c2.value.trim().toLowerCase()=="February"){
+  if(c2.value.trim().toLowerCase()=="february"){
     v3.classList.remove("hidden");
     l3.classList.remove("hidden");
-  } else alert("Wrong code");
+  } else alert("Wrong code ❌ (check spelling)");
+
 }
 function u3(){
-  if(c3.value.trim().toLowerCase()=="Smile"){
+  if(c3.value.trim().toLowerCase()=="smile"){
     v4.classList.remove("hidden");
     l4.classList.remove("hidden");
-  } else alert("Wrong code");
+  } else alert("Wrong code ❌ (check spelling)");
+
 }
 function u4(){
   if(c4.value.trim().toLowerCase()=="4ever"){
     v5.classList.remove("hidden");
-  } else alert("Wrong code"); 
+  } else alert("Wrong code ❌ (check spelling)");
+
   
 }
 </script>
